@@ -8,36 +8,55 @@
 </head>
 <body>
     <div class="container">
-        <h1>Sole Selection</h1>
+        <h1 class="display-1">Sole Selection</h1>
         <!-- <form id="sneaker-form">
             <input type="text"/>
             <input type="submit"/>
         </form> -->
-        <form>
+        <h3 class="display-3">Add a sneaker to your collection:</h3>
+        <form id="sneaker-form">
             <div class="form-group">
-              <label for="Colorway">Colorway</label>
-              <input type="text" class="form-control" id="input-colorway" placeholder="Colorway">
+              <!-- <label for="Colorway">Colorway</label> -->
+              <input type="text" class="form-control" id="sneaker-colorway" placeholder="Colorway">
             </div>
             <div class="form-group">
-              <label for="name">Name</label>
-              <input type="text" class="form-control" id="input-sneaker-name" placeholder="Name">
+              <!-- <label for="name">Name</label> -->
+              <input type="text" class="form-control" id="sneaker-name" placeholder="Name">
             </div>
             <div class="form-group">
-                <label for="brand">Brand</label>
-                <input type="text" class="form-control" id="input-brand" placeholder="Brand">
+                <!-- <label for="brand">Brand</label> -->
+                <input type="text" class="form-control" id="sneaker-brand" placeholder="Brand">
               </div>
             <div class="form-group">
-                <label for="price">Price</label>
-                <input type="float" class="form-control" id="input-price" placeholder="Price">
+                <!-- <label for="price">Price</label> -->
+                <input type="float" class="form-control" id="sneaker-price" placeholder="Price">
             </div>
             <div class="form-group">
-                <label for="image">Image</label>
-                <input type="text" class="form-control" id="input-image" placeholder="Image">
+                <!-- <label for="image">Image</label> -->
+                <input type="text" class="form-control" id="sneaker-image" placeholder="Image">
               </div>
-            <input type="submit"/>
+            <input type="submit" class="btn btn-secondary btn"/>
           </form>
     </div>
     <style>
+        h1{
+            text-align: center;
+            color: white;
+        }
+
+        h3 {
+            text-align: center;
+            color: white;
+        }
+
+       form {
+            text-align: center;
+        }
+
+        input {
+            text-align: center;
+        }
+
         body {
           background-image: url(https://i.etsystatic.com/17945549/r/il/9131a9/2068410525/il_1588xN.2068410525_6rxl.jpg);
           background-size: 1440px 900px;
