@@ -1,0 +1,22 @@
+h1{
+    text-align: center;
+    color: white;
+}
+
+h3 {
+    text-align: center;
+    color: white;
+}
+
+form {
+    text-align: center;
+}
+
+input {
+    text-align: center;
+}
+
+body {
+  background-image: url(https://i.etsystatic.com/17945549/r/il/9131a9/2068410525/il_1588xN.2068410525_6rxl.jpg);
+  background-size: 1440px 900px;
+}
