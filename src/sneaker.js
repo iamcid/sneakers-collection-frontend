@@ -1,22 +1,20 @@
 class Sneaker{
 
+    static allSneakers = []
+
     constructor(sneaker){
         this.id = sneaker.id
         this.colorway = sneaker.attributes.colorway
         this.name = sneaker.attributes.name
         this.brand = sneaker.attributes.brand
         this.price = sneaker.attributes.price
-        this.image = sneaker.attributed.image
+        this.image = sneaker.attributes.image
 
         Sneaker.allSneakers.push(this)
-        this.renderCocktail()
     }
-    
-    static allSneakers = []
-    
+        
     static renderSneaker(sneakers){
-        sneakerList.innerHTML = ""
-        for (let sneaker of sneakers){
+        for (let sneaker of this.allSneakers){
             sneaker.renderSneaker()
         }
     }
@@ -27,23 +25,25 @@ class Sneaker{
         .then(sneakers => {
             for (let sneaker of sneakers.data){
                 let newSneakerList = new Sneaker(sneaker)
+            newSneakerList.renderSneaker
             }
+        this.renderSneaker()
         })
     }
 
     renderSneaker(){
     
-    const sneakerElement = document.createElement('li')
-    sneakerElement.dataset.id = this.id
-    sneakerList.appendChild(sneakerElement)
+    const sneakerLi = document.createElement('li')
+    sneakerLi.dataset.id = this.id
+    sneakerList.appendChild(sneakerLi)
 
     const h2 = document.createElement('h2')
     h2.className = ("card-header")
     h2.innerText = this.colorway + this.name
 
-    const cardText = document.createElement('p')
-    cardText.className = "card-text"
-    cardText.innerText = this.brand + this.price
+    const p = document.createElement('p')
+    p.className = "card-text"
+    p.innerText = this.brand + this.price
     
     const img = document.createElement('img')
     img.src = this.image
@@ -55,23 +55,24 @@ class Sneaker{
     deleteButton.addEventListener("click", this.deleteSneaker)
 
     
-    const commentForm = document.createElement('form')
-    commentForm.innerHTML += `<input type="text" class="form-control" id="size-input" placeholder="Size">
-    <input type="text" class="form-control" id="comment-input" placeholder="Comment">
-    <input type="submit" class="btn btn-primary btn-sm" value="Submit">`
+    // const commentForm = document.createElement('form')
+    // commentForm.innerHTML += `<input type="text" class="form-control" id="size-input" placeholder="Size">
+    // <input type="text" class="form-control" id="comment-input" placeholder="Comment">
+    // <input type="submit" class="btn btn-primary btn-sm" value="Submit">`
 
-    commentForm.addEventListener("submit", Comment.createComment)
+    // commentForm.addEventListener("submit", Comment.createComment)
 
-    const commentList = document.createElement('ul')
-    commentList.className = "list-group"
-    commentList.dataset.id = this.id
+    // const commentList = document.createElement('ul')
+    // commentList.className = "list-group"
+    // commentList.dataset.id = this.id
 
-    this.comments.forEach(comment =>{
-        let newCmnt = new Comment(comment)
-        newCmnt.renderComment(coomentList)
-    })
+    // this.comments.forEach(comment =>{
+    //     let newCmnt = new Comment(comment)
+    //     newCmnt.renderComment(commentList)
+    // })
 
-    sneakerElement.append (h3, img, commentList, commentForm, cardText, deleteButton )
+    sneakerLi.append (h2, img, p, deleteButton )
+    // commentList, commentForm
 
     }
     static submitSneaker(s){
@@ -93,18 +94,19 @@ class Sneaker{
         .then(response => response.json())
         .then(sneaker => {
             let newSneaker = new Sneaker(sneaker.data)
-
+            console.log(newSneaker)
+            newSneaker.renderSneaker()
             sneakerForm.reset()
         })
     }
 
     deleteSneaker(){
-        const SneakerId = this.parenElement.dataset.id
+        const sneakerId = this.parentElement.dataset.id
 
-        fetch (`${sneakersUTL}/${sneakerId}`, {
+        fetch(`${sneakersURL}/${sneakerId}`, {
             method: "DELETE"
         })
-
-            this.parentELement.remove()
+            .catch(err => alert(err))
+            this.parentElement.remove()
     }
 }
