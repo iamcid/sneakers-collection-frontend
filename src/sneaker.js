@@ -39,11 +39,12 @@ class Sneaker{
 
     const h2 = document.createElement('h2')
     h2.className = ("card-header")
-    h2.innerText = this.colorway + this.name
+    h2.innerText = this.colorway + " " + this.name
 
     const p = document.createElement('p')
-    p.className = "card-text"
-    p.innerText = this.brand + this.price
+    p.className = ("card-text")
+    p.innerText = this.brand + " " + this.price
+
     
     const img = document.createElement('img')
     img.src = this.image
@@ -55,26 +56,26 @@ class Sneaker{
     deleteButton.addEventListener("click", this.deleteSneaker)
 
     
-    // const commentForm = document.createElement('form')
-    // commentForm.innerHTML += `<input type="text" class="form-control" id="size-input" placeholder="Size">
-    // <input type="text" class="form-control" id="comment-input" placeholder="Comment">
-    // <input type="submit" class="btn btn-primary btn-sm" value="Submit">`
+    const commentForm = document.createElement('form')
+    commentForm.innerHTML += `<input type="text" class="form-control" id="comment-input" placeholder="Comment">
+    <input type="submit" class="btn btn-primary btn-sm" value="Submit">`
 
-    // commentForm.addEventListener("submit", Comment.createComment)
+    commentForm.addEventListener("submit", Comment.createComment)
 
-    // const commentList = document.createElement('ul')
-    // commentList.className = "list-group"
-    // commentList.dataset.id = this.id
+    const commentList = document.createElement('ul')
+    commentList.className = "list-group list-group-flush"
+    commentList.dataset.id = this.id
 
     // this.comments.forEach(comment =>{
     //     let newCmnt = new Comment(comment)
     //     newCmnt.renderComment(commentList)
     // })
 
-    sneakerLi.append (h2, img, p, deleteButton )
-    // commentList, commentForm
-
+    sneakerLi.append (h2, img, p, commentList, commentForm, deleteButton)
+    
+    // sneakerForm.reset()
     }
+    
     static submitSneaker(s){
         s.preventDefault()
         fetch(sneakersURL, {
