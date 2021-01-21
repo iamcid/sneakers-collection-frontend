@@ -8,25 +8,21 @@ class Comment{
     static createComment(e){
         e.preventDefault()
         const commentMessage = e.target.children[0].value
-        const commentList = e.target.nextElementSibling
+        const commentList = e.target.previousElementSibling
         const sneakerId = e.target.parentElement.dataset.id
-
         Comment.submitComment(commentMessage, commentList, sneakerId)
         e.target.reset()
     }
 
     renderComment(commentList){
-        
         const li = document.createElement('li')
         li.dataset.id = this.sneaker_id
-        li.innerText = this.message
+        li.innerText = this.comment
 
         const deleteButton = document.createElement('button')
         deleteButton.innerText = "Delete"
         li.appendChild(deleteButton)
         commentList.appendChild(li)
-
-        // deleteButton.addEventListener("click", this.deleteComment)
     }
 
     static submitComment(comment, commentList, sneakerId){
@@ -37,23 +33,14 @@ class Comment{
                 "Accept": "application/json",
             },
             body: JSON.stringify({
-            message: comment
+            message: comment,
             sneaker_id: sneakerId
             })
         })
         .then(response => response.json())
         .then(comment => {
-            let newComment = new Comment(comment)
+            let newComment = new Comment(comment.data.attributes)
             newComment.renderComment(commentList)
         })
     }
-    
-    // deleteComment(){
-    //     const commentId= this.parentElement.dataset.id
-
-    //     fetch (`${commentsURL}/${commentId}`,{
-    //         method: "DELETE"            
-    //     })
-    //     this.parentElement.remove()
-    // }
 }

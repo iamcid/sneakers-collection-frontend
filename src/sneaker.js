@@ -45,7 +45,6 @@ class Sneaker{
     p.className = ("card-text")
     p.innerText = this.brand + " " + this.price
 
-    
     const img = document.createElement('img')
     img.src = this.image
     img.width = 200
@@ -65,11 +64,6 @@ class Sneaker{
     const commentList = document.createElement('ul')
     commentList.className = "list-group list-group-flush"
     commentList.dataset.id = this.id
-
-    // this.comments.forEach(comment =>{
-    //     let newCmnt = new Comment(comment)
-    //     newCmnt.renderComment(commentList)
-    // })
 
     sneakerLi.append (h2, img, p, commentList, commentForm, deleteButton)
 
@@ -106,7 +100,7 @@ class Sneaker{
         fetch(`${sneakersURL}/${sneakerId}`, {
             method: "DELETE"
         })
-            .catch(err => alert(err))
+            // .catch(err => alert(err))
             this.parentElement.remove()
     }
 }

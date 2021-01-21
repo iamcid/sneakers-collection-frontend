@@ -1,5 +1,5 @@
 const sneakersURL = "http://localhost:3000/sneakers"
-const commentsURL = "http://localhost:3000/comments"
+const commentURL = "http://localhost:3000/comments"
 const sneakerForm = document.getElementById("sneaker-form")
 const sneakerColorway = document.getElementById("sneaker-colorway")
 const sneakerName = document.getElementById("sneaker-name")
