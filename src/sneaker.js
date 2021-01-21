@@ -72,8 +72,7 @@ class Sneaker{
     // })
 
     sneakerLi.append (h2, img, p, commentList, commentForm, deleteButton)
-    
-    // sneakerForm.reset()
+
     }
     
     static submitSneaker(s){
