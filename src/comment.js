@@ -22,6 +22,8 @@ class Comment{
         const deleteButton = document.createElement('button')
         deleteButton.innerText = "Delete"
         li.appendChild(deleteButton)
+
+        deleteButton.addEventListener("click", this.deleteComment)
         commentList.appendChild(li)
     }
 
