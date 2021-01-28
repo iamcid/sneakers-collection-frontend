@@ -9,15 +9,22 @@ class Sneaker{
         this.brand = sneaker.attributes.brand
         this.price = sneaker.attributes.price
         this.image = sneaker.attributes.image
+        this.comments = sneaker.attributes.comments
 
         Sneaker.allSneakers.push(this)
     }
         
-    static renderSneaker(sneakers){
+    static renderSneakers(){
         for (let sneaker of this.allSneakers){
             sneaker.renderSneaker()
         }
-    }
+    }    
+
+    // static sortSneaker = () => {
+    //     this.allSneakers.sort(function (a, b){
+    //         return a.price - b.price;
+    //     })
+    // }
 
     static fetchSneakers(){
         fetch(sneakersURL)
@@ -25,10 +32,11 @@ class Sneaker{
         .then(sneakers => {
             for (let sneaker of sneakers.data){
                 let newSneakerList = new Sneaker(sneaker)
-            newSneakerList.renderSneaker
+                // console.log("new")
             }
-        this.renderSneaker()
+        this.renderSneakers()
         })
+        // console.log("high")
     }
 
     renderSneaker(){
@@ -63,7 +71,11 @@ class Sneaker{
 
     const commentList = document.createElement('ul')
     commentList.className = "list-group list-group-flush"
-    commentList.dataset.id = this.id
+    this.comments.forEach(comment =>{
+            
+        let newComment = new Comment(comment)
+       newComment.renderComment(commentList)
+    })
 
     sneakerLi.append (h2, img, p, commentList, commentForm, deleteButton)
 
@@ -88,7 +100,7 @@ class Sneaker{
         .then(response => response.json())
         .then(sneaker => {
             let newSneaker = new Sneaker(sneaker.data)
-            console.log(newSneaker)
+            // console.log(newSneaker)
             newSneaker.renderSneaker()
             sneakerForm.reset()
         })

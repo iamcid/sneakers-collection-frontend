@@ -21,6 +21,10 @@ body {
   background-size: 1440px 900px;
 }
 
-div {
-    
+.header {
+    padding: 5px;
+    text-align: center;
+    background: #000000;
+    color: white;
+    font-size: 30px;
 }

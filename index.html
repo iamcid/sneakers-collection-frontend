@@ -9,8 +9,10 @@
 </head>
 <body>
     <div class="container">
+      <div class="header">
         <h1 class="display-1">Sole Selection</h1>
         <h3 class="display-3">Add a sneaker to your collection:</h3>
+      </div>
         <form id="sneaker-form">
             <div class="form-group">
               <!-- <label for="Colorway">Colorway</label> -->
@@ -23,7 +25,7 @@
             <div class="form-group">
                 <!-- <label for="brand">Brand</label> -->
                 <input type="text" class="form-control" id="sneaker-brand" placeholder="Brand">
-              </div>
+            </div>
             <div class="form-group">
                 <!-- <label for="price">Price</label> -->
                 <input type="float" class="form-control" id="sneaker-price" placeholder="Price">
@@ -31,15 +33,19 @@
             <div class="form-group">
                 <!-- <label for="image">Image</label> -->
                 <input type="text" class="form-control" id="sneaker-image" placeholder="Image">
-              </div>
+            </div>
             <input type="submit" class="btn btn-secondary btn"/>
+  
           </form>
+          <br>
+    
+          <!-- <button id="sort-by-price" type="button">Sort By Price</button> -->
     </div>
    
       <div class="card" style="width: 18rem;">
             
         <ul id="sneaker-list">
-          <br>
+
         </ul>
       </div>
     </div>
