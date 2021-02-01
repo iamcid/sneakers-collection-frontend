@@ -32,7 +32,7 @@ class Sneaker{
         .then(response => response.json())
         .then(sneakers => {
             for (let sneaker of sneakers.data){
-                let newSneakerList = new Sneaker(sneaker)
+                let newSneaker = new Sneaker(sneaker)
                 // console.log("new")
             }
         this.renderSneakers()
