@@ -13,19 +13,20 @@ class Sneaker{
 
         Sneaker.allSneakers.push(this)
     }
-        
+    
+    static sortSneaker() {
+        const sortedSneaker = this.allSneakers.sort((a,b) => a.price - b.price )
+        sneakerList.innerHTML = ""
+        sortedSneaker.forEach(sneaker => sneaker.renderSneaker())
+    }
+    
+
     static renderSneakers(){
         for (let sneaker of this.allSneakers){
             sneaker.renderSneaker()
         }
     }    
-
-    // static sortSneaker = () => {
-    //     this.allSneakers.sort(function (a, b){
-    //         return a.price - b.price;
-    //     })
-    // }
-
+        
     static fetchSneakers(){
         fetch(sneakersURL)
         .then(response => response.json())
