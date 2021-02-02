@@ -13,8 +13,24 @@ class Sneaker{
 
         Sneaker.allSneakers.push(this)
     }
+
+    static cheapSneaker = () => {
+        const input = document.getElementById("user-price").value
+        const result= this.allSneakers.filter(sneaker => sneaker.price < input);
+        sneakerList.innerHTML = ""
+        result.forEach(sneaker => sneaker.renderSneaker())
+    }
     
-    static sortSneaker() {
+    // static sortSneaker() {
+    //     console.log(this)
+    //     const sortedSneaker = this.allSneakers.sort((a,b) => a.price - b.price )
+    //     sneakerList.innerHTML = ""
+    //     sortedSneaker.forEach(sneaker => sneaker.renderSneaker())
+    // }
+
+      
+    static sortSneaker = () => {
+        console.log(this)
         const sortedSneaker = this.allSneakers.sort((a,b) => a.price - b.price )
         sneakerList.innerHTML = ""
         sortedSneaker.forEach(sneaker => sneaker.renderSneaker())
